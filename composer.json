@@ -1,6 +1,6 @@
 {
     "name": "huchunguang/logmysql",
-    "description": "a simple api log",
+    "description": "a simple log api for Qnn",
     "type": "library",
     "license": "MIT",
     "authors": [
