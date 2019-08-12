@@ -1,0 +1,19 @@
+{
+    "name": "huchunguang/logmysql",
+    "description": "a simple api log",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "huchunguang",
+            "email": "huchunguang123@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Qnn\\logDB\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
