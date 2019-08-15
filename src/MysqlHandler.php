@@ -2,10 +2,10 @@
 namespace Qnn\logDB;
 
 use DB;
-use Illuminate\Support\Facades\Auth;
-use Monolog\Handler\AbstractProcessingHandler;
-use Monolog\Logger;
 use Illuminate\Config\Repository;
+use Illuminate\Support\Facades\Request;
+use Monolog\Logger;
+
 class MysqlHandler
 {
 	protected $table;
@@ -22,11 +22,12 @@ class MysqlHandler
 	public function write(array $record)
 	{
 		$data = [
-			'host'    => gethostname(),
+			'host'    => Request::getClientIp(),
 			'uri'     => $record['uri'],
+			'request_key'=> $record['request_key']??'',
 			'params'     => json_encode($record['params'], JSON_UNESCAPED_UNICODE),
 			'raw_return'       => $record['raw_return']??'数据异常',
-			'create_at'  => $record['datetime'],
+			'create_at'  => date('Y-m-d H:i:s', time()),
 		];
 		\Illuminate\Support\Facades\DB::connection($this->connection)->table($this->table)->insert($data);
 	}
