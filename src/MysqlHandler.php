@@ -14,9 +14,8 @@ class MysqlHandler
 	
 	public function __construct(Repository $config,$level = Logger::DEBUG, $bubble = true)
 	{
-		$this->config=$config;
-		$this->table      = $this->config['logDB.DB_LOG_TABLE'];
-		
+		$this->config = $config;
+		$this->table = $this->config['logDB.DB_LOG_TABLE'];
 		$this->connection = $this->config['logDB.DB_LOG_CONNECTION'];
 	}
 	public function write(array $record)
